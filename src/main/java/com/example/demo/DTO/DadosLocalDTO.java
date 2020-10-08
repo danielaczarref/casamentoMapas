@@ -3,6 +3,7 @@ package com.example.demo.DTO;
 import com.example.demo.domain.Cidade;
 import com.example.demo.domain.TipoLocal;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,26 +14,18 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 public class DadosLocalDTO implements Serializable{
-
-
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long idDadosLocal;
 
         @NotEmpty(message = "Descrição do local não informada!")
         private String descricaoLocal;
 
         private long cepLocal;
 
-        @NotBlank(message = "Cidade não informada!")
-        @OneToOne
-        @MapsId
-        private Cidade cidade;
+        @NotEmpty(message = "Informe o id de uma cidade")
+        private Long idCidade;
 
         @NotEmpty (message = "Rua não informada!")
         private String logradouroLocal;
@@ -43,6 +36,6 @@ public class DadosLocalDTO implements Serializable{
         @JsonFormat(pattern = "dd/MM/yyy HH:mm")
         private Date dataLocal;
 
-        @ManyToOne
-        private TipoLocal tipoLocal;
+        @NotEmpty(message = "Informe um tipo de local")
+        private Long idTipoLocal;
     }

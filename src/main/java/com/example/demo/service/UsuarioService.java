@@ -13,7 +13,7 @@ public class UsuarioService {
 
     public ResponseEntity<Void> updateUsuario(long usuarioId, Usuario usuario){
         if (usuarioDAO.findById(usuarioId).isPresent()) {
-            usuario.setId(usuarioId);
+            usuario.setIdUsuario(usuarioId);
             usuarioDAO.save(usuario);
             return ResponseEntity.ok().build();
         } else {

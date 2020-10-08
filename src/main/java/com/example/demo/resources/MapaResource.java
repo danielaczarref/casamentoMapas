@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/mapa")
 
-public class Mapa {
+public class MapaResource {
 
     @GetMapping(value="/retorna-mapa")
     public String getMapa() {

@@ -1,4 +1,9 @@
 package com.example.demo.repository;
+import com.example.demo.domain.TipoLocal;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TipoLocalDAO {
+@Repository
+
+public interface TipoLocalDAO extends JpaRepository<TipoLocal,Long> {
 }
